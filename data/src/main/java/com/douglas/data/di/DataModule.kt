@@ -1,6 +1,7 @@
 package com.douglas.data.di
 
 import com.douglas.data.datasource.remote.ApiService
+import com.douglas.products.data.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,7 +26,7 @@ object DataModule {
             .build()
 
         return Retrofit.Builder()
-            .baseUrl("https://android-ios-service.herokuapp.com/")
+            .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
